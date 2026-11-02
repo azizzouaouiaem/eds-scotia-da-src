@@ -25,3 +25,173 @@
   aspect-ratio: 4 / 3;
   object-fit: cover;
 }
+
+/* ---------- interest variant (image-overlay tiles) ---------- */
+.cards.interest > ul {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.cards.interest > ul > li {
+  border: 0;
+  background: none;
+}
+
+.cards.interest .card-tile {
+  position: relative;
+  display: block;
+  border-radius: 4px;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  color: #fff;
+}
+
+.cards.interest .card-tile-media,
+.cards.interest .card-tile-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.cards.interest .card-tile-media img {
+  object-fit: cover;
+  aspect-ratio: auto;
+}
+
+.cards.interest .card-tile::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgb(0 0 0 / 75%) 0%, rgb(0 0 0 / 10%) 45%, transparent 70%);
+}
+
+.cards.interest .card-tile-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cards.interest .card-tile-title {
+  font-family: var(--heading-font-family);
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+.cards.interest .card-tile-cta {
+  font-size: 15px;
+  text-decoration: underline;
+}
+
+.cards.interest .card-tile:hover .card-tile-cta {
+  text-decoration: none;
+}
+
+@media (width <= 900px) {
+  .cards.interest > ul {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- marketing variant (used inside tabs) ---------- */
+.cards.marketing > ul {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.cards.marketing > ul > li {
+  border: 1px solid #e1e1e1;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 6%);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.cards.marketing .card-mkt-image {
+  position: relative;
+  line-height: 0;
+}
+
+.cards.marketing .card-mkt-image img {
+  aspect-ratio: 686 / 386;
+  object-fit: cover;
+}
+
+.cards.marketing .card-mkt-body {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.cards.marketing .card-mkt-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  margin: 0;
+  background: #0b5f7a;
+  color: #fff;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 5px 10px;
+  border-radius: 3px;
+}
+
+.cards.marketing .card-mkt-badge em,
+.cards.marketing .card-mkt-badge strong {
+  font-style: normal;
+  font-weight: 400;
+}
+
+.cards.marketing .card-mkt-body h3,
+.cards.marketing .card-mkt-body h4 {
+  font-family: var(--body-font-family);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--heading-color);
+  margin: 0;
+}
+
+.cards.marketing .card-mkt-body p {
+  font-size: 14px;
+  color: #555;
+  margin: 0;
+  line-height: 1.45;
+}
+
+.cards.marketing .card-mkt-link {
+  margin-top: auto;
+  color: var(--link-color);
+  font-size: 15px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cards.marketing .card-mkt-link::after {
+  content: '\203A';
+  font-size: 18px;
+  line-height: 1;
+}
+
+.cards.marketing .card-mkt-link:hover {
+  text-decoration: underline;
+}
+
+@media (width <= 900px) {
+  .cards.marketing > ul {
+    grid-template-columns: 1fr;
+  }
+}

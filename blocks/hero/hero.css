@@ -1,37 +1,129 @@
-.hero-container .hero-wrapper {
-  max-width: unset;
-  padding: 0;
+.hero.block {
+  background: var(--light-color);
 }
 
-.hero {
+.hero.block > div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 1280px;
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+.hero .hero-content {
+  padding: 48px 48px 48px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 600px;
+}
+
+.hero .hero-icons {
+  display: flex;
+  gap: 10px;
+  margin: 0 0 16px;
+}
+
+.hero .hero-icons img,
+.hero .hero-icons picture {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+.hero .hero-content h1 {
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-xxl);
+  line-height: 1.1;
+  color: var(--heading-color);
+  margin: 0 0 16px;
+}
+
+.hero .hero-content p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text-color);
+  margin: 0 0 12px;
+}
+
+.hero .hero-cta-row {
+  display: flex;
+  gap: 40px;
+  margin-top: 16px;
+}
+
+.hero .hero-cta-label {
+  margin: 0 0 12px !important;
+  font-size: 14px;
+}
+
+.hero .hero-content .button-wrapper {
+  margin: 0;
+}
+
+.hero .hero-content a.button.primary {
+  background: #1b1b1b;
+  border-color: #1b1b1b;
+  color: #fff;
+  border-radius: 24px;
+  padding: 12px 32px;
+}
+
+.hero .hero-content a.button.primary:hover {
+  background: #000;
+  border-color: #000;
+}
+
+.hero .hero-content a.button.secondary {
+  background: transparent;
+  border: 1px solid #1b1b1b;
+  color: #1b1b1b;
+  border-radius: 24px;
+  padding: 12px 32px;
+}
+
+.hero .hero-content a.button.secondary:hover {
+  background: rgb(0 0 0 / 5%);
+}
+
+.hero .hero-media {
   position: relative;
-  padding: 40px 24px;
-  min-height: 300px;
+  min-height: 100%;
 }
 
-.hero h1 {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  color: var(--background-color);
-}
-
-.hero picture {
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  object-fit: cover;
-  box-sizing: border-box;
-}
-
-.hero img {
-  object-fit: cover;
+.hero .hero-media img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
-@media (width >= 900px) {
-  .hero {
-    padding: 40px 32px;
+@media (width <= 900px) {
+  .hero.block > div {
+    grid-template-columns: 1fr;
+  }
+
+  .hero .hero-media {
+    order: -1;
+    min-height: 220px;
+  }
+
+  .hero .hero-content {
+    padding: 32px 16px;
+    max-width: none;
+  }
+
+  .hero .hero-cta-row {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .hero .hero-cta-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero .hero-content a.button {
+    width: 100%;
   }
 }
